@@ -23,7 +23,7 @@
     letter-spacing: 0.3em;
 }
 #app #events{
-    height: 300px;
+    height: fit-content;
     margin: auto;
     background-color: whitesmoke;
     box-shadow: 0 3px 8px rgb(196, 138, 30);
