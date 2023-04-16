@@ -1,8 +1,9 @@
 const app = Vue.createApp({
     data(){
         return{
-           count:0,
-           name: ''
+           count:340,
+           name: '',
+           confirmedName:''
         }
     },
     methods:{
@@ -27,6 +28,9 @@ const app = Vue.createApp({
              * being executed. for prevent default, we use v-on:submit.prevent. 
              */
             alert("Hello there !")
+        },
+        confirmName(){
+            this.confirmedName = this.name;
         }
 
     }
