@@ -3,7 +3,8 @@ const app = Vue.createApp({
         return{
            count:340,
            name: '',
-           confirmedName:''
+           confirmedName:'',
+           fullname:''
         }
     },
     methods:{
@@ -17,8 +18,8 @@ const app = Vue.createApp({
                this.count -= num;
             }
         },
-        setName(event,lastName){
-            this.name = event.target.value + ' '+lastName;            
+        setName(event){
+            this.name = event.target.value;            
         },
         onSubmit(event){
             // To prevent page we add following code.
@@ -31,8 +32,28 @@ const app = Vue.createApp({
         },
         confirmName(){
             this.confirmedName = this.name;
+        },
+        clearInput(){
+            this.name = '';
         }
 
+    },
+    computed:{
+        fullname(){
+            if(this.name === ''){
+                return '';
+            }
+            return this.name+' '+' Khanal';
+        }
+        // Watchers are the function that tells vue to execute when one of it's dependency is changed.
+    },
+    watch:{
+        name(value){
+            if(value === ''){
+                this.fullname = '';
+            }
+            this.fullname = value+' '+' World !'
+        }
     }
 });
 

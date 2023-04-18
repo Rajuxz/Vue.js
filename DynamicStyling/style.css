@@ -1,0 +1,40 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+header{
+    height:150px;
+    width:350px;
+    background-color: rgb(7, 66, 145);
+    padding-top:35px;
+    text-align: center;
+    font-family: Poppins;
+    box-sizing: border-box;
+    margin:auto;
+    border-radius: 15px;
+    color:white;
+}
+#events{
+    height: 450px;
+    margin: auto;
+    width: 350px;
+   box-shadow: 10px 10px 15px #ccc;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+#events .box{
+    height: 90px;
+    width: 180px;
+    border:2px dashed #ccc;
+    margin:10px auto;
+    cursor: pointer;
+   
+}
+.active{
+    border-color: #fcfcfc;
+    background-color: salmon;
+}
