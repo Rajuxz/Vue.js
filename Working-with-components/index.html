@@ -13,17 +13,9 @@
     </header>
     <div id="app">
         <ul>
-            <li v-for="friend in friends">
-                <h2>Friends</h2>
-                <button @click="displayData">
-                    {{ displayList ?'Hide':'Show'}} Details</button>
-                    <!-- Here problem is , when user click button, it will show data of all list no matter how many data are there. -->
-                <ul v-if="displayList">
-                    <li><strong>Name:</strong>{{friend.name}}</li>
-                    <li><strong>Email:</strong>{{friend.email}}</li>
-                    <li><strong>Phone:</strong>{{friend.phone}}</li>
-                </ul>
-            </li>
+            <friend-detail></friend-detail>
+            <!-- These two components will work standalone. -->
+            <friend-detail></friend-detail>
         </ul>
     </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
