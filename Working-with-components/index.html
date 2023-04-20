@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vue | Components</title>
+</head>
+<body>
+    <header>
+        <h1>Friend List</h1>
+    </header>
+    <div id="app">
+        <ul>
+            <li v-for="friend in friends">
+                <h2>Friends</h2>
+                <button @click="displayData">
+                    {{ displayList ?'Hide':'Show'}} Details</button>
+                    <!-- Here problem is , when user click button, it will show data of all list no matter how many data are there. -->
+                <ul v-if="displayList">
+                    <li><strong>Name:</strong>{{friend.name}}</li>
+                    <li><strong>Email:</strong>{{friend.email}}</li>
+                    <li><strong>Phone:</strong>{{friend.phone}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
