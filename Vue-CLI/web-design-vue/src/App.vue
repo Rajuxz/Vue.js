@@ -6,7 +6,17 @@
                 name="Raju"
                 email-address="Rajankhana@gmail.com"
                 phone-number="1234  5678 9020"
-                is-favourite="1"
+                v-bind:is-favourite="true"
+            ></friend-contact>
+            <friend-contact
+                name="Roshan"
+                email-address="roshan@gmail.com"
+                phone-number="1234  5678 9020"
+            ></friend-contact>
+            <friend-contact
+                name="Rohan"
+                email-address="Rohan@gmail.com"
+                phone-number="1234  5678 9020"
             ></friend-contact>
         </ul>
        
