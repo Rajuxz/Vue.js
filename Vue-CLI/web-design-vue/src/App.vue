@@ -9,7 +9,7 @@
                 is-favourite="1"
             ></friend-contact>
         </ul>
-        <input-box></input-box>
+       
     </section>
 </template>
 <script>
