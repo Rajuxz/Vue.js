@@ -37,9 +37,12 @@ export default {
 
         isFavourite:{
             type:Boolean,
-            required:false
+            required:false,
+            default:false, //or can be a function(){} so we can write complex logic here.
+            // validator:function(value){
+            //     return value ==="1" || value === "0";
+            // }
         },
-
     },
     data(){
         return{
