@@ -1,28 +1,25 @@
 <template>
-    <section>
+    <div class="component">
         <h2>My Friends</h2>
         <ul>
             <friend-contact
-                name="Raju"
-                email-address="Rajankhana@gmail.com"
-                phone-number="1234  5678 9020"
-                v-bind:is-favourite="true"
+                v-for="friend in friends"
+                :key="friend.id"
+                :id="friend.id"
+                :name="friend.name"
+                :email-address="friend.email"
+                :phone-number="friend.phone"
+                :isFavorite="friend.isFavorite"
+                @toggle-fav="toggleFavoriteStatus"
             ></friend-contact>
-            <friend-contact
-                name="Roshan"
-                email-address="roshan@gmail.com"
-                phone-number="1234  5678 9020"
-            ></friend-contact>
-            <friend-contact
-                name="Rohan"
-                email-address="Rohan@gmail.com"
-                phone-number="1234  5678 9020"
-            ></friend-contact>
+            
         </ul>
        
-    </section>
+    </div>
 </template>
 <script>
+
+
  export default{
     data(){
         return{
@@ -31,16 +28,55 @@
                     id:"raju",
                     name:"Raju",
                     email:"email@raju.com",
-                    phone:"1234 5678 90"
+                    phone:"1234 5678 90",
+                    isFavorite:true
                 },
                 {
                     id:"pramisha",
                     name:"Pramisha",
                     email:"email@pramisha.com",
-                    phone:"1234 5678 90"
+                    phone:"1234 5678 90",
+                    isFavorite:true
                 }
             ]
+        };
+    },
+
+    methods:{
+        toggleFavoriteStatus(friendId){
+           
+            const myFriend =  this.friends.find(friend=>friend.id === friendId);
+            myFriend.isFavorite = !myFriend.isFavorite;
         }
     }
  }
 </script>
+<style>
+    .component{
+        width:500px;
+        height:fit-content;
+        border:1px solid red;
+        border-radius: 10px;
+        margin:auto;
+        background: #eef;
+        box-shadow: 1px 2px 10px rgb(0, 204, 255);
+    }   
+   .component>h2{
+        padding:5px;
+        color: white;
+        background: #031ba1;
+        margin-top:0;
+        border-radius:10px;
+        text-align: center;
+        border-bottom: 2px solid grey;
+    }
+  @media only screen and (max-width: 600px) {
+  
+    .component{
+        
+        width:100vw;
+        
+    }
+  }
+
+</style>
