@@ -1,8 +1,8 @@
 <template>
-    <section>
-        <h2 class="name">{{name}} {{isFriendFavorite==="1"?'(Favourite)':''}}</h2>
-        <button @click="toggleFavourite">{{isFriendFavourite==="1"?"Remove from favorite":"Add to Favorite"}}</button> <br>
-        <button @click="showDetails">Show Details</button>
+    <section class="section-body">
+        <h2 class="name">{{name}} {{isFavorite?'(Favourite)':''}}</h2>
+        <button @click="showDetails">{{isVisible?"Hide Details":"Show Details"}}</button>
+        <button @click="toggleFavorite">{{isFavorite?"Remove from Fav.":"Add to Fav."}} </button>
         <ul v-if="isVisible">
             <li><strong>Phone </strong>{{phoneNumber}}</li>
             <li><strong>Email </strong>{{emailAddress}}</li>
@@ -20,6 +20,10 @@ export default {
     ],*/
     // Props validation.
     props:{
+        id:{
+            type: String,
+            required:true
+        },
         name:{
             type:String,
             required:true,
@@ -35,7 +39,7 @@ export default {
             required:true
         },
 
-        isFavourite:{
+        isFavorite:{
             type:Boolean,
             required:false,
             default:false, //or can be a function(){} so we can write complex logic here.
@@ -46,26 +50,17 @@ export default {
     },
     data(){
         return{
-            isVisible:false,
-             friends:{
-                    id:"raju",
-                    name:"Raju",
-                    email:"email@raju.com",
-                    phone:"1234 5678 90"
-                },
-            isFriendFavorite: this.isFavourite,
+            isVisible:false
      }
     },
     methods:{
         showDetails(){
             return this.isVisible = !this.isVisible;
         },
-        toggleFavourite(){
-            if(this.isFriendFavorite === "1"){
-                this.isFriendFavorite = "0"
-            }else{
-                this.isFriendFavorite = "1";
-            }
+        toggleFavorite(){
+            this.$emit('toggle-fav',this.id);
+            // this.isFriendFavorite = !this.isFriendFavorite;
+
 
         }
       
@@ -73,24 +68,20 @@ export default {
     
 }
 </script>
-
 <style>
-    .name{
-        width:250px;
-        padding:10px;
-        height:50px;
-        color:white;
-        background: #0f037e;
-        border-radius: 10px;
-    }
-    button{
-        height:50px;
-        background: #ee00ff;
-        border-radius: 10px;
-        border:none;
-        color:white;
-        cursor: pointer;
-        width:100px;
-        margin:3px;
-    }
+   .section-body>h2{
+    color:#031ba1;
+   }
+   button{
+    height:30px;
+    margin-right:5px;
+    background: #ff3c00;
+    color:white;
+    border:1px solid transparent;
+    border-radius:5px;
+   }
+   ul{
+    list-style-type: none;
+    margin-top:3px;
+   }
 </style>
