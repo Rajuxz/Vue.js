@@ -1,5 +1,6 @@
 <template>
     <div class="component">
+        <add-friend></add-friend>
         <h2>My Friends</h2>
         <ul>
             <friend-contact
@@ -18,11 +19,13 @@
     </div>
 </template>
 <script>
+import AddFriend from './components/AddFriend.vue';
 
 
  export default{
     data(){
         return{
+        AddFriend,
             friends:[
                 {
                     id:"raju",
