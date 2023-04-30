@@ -1,7 +1,7 @@
 <template>
     <div class="component">
-        <add-friend></add-friend>
         <h2>My Friends</h2>
+        <add-friend @add-friend="addNewFriend"></add-friend>
         <ul>
             <friend-contact
                 v-for="friend in friends"
@@ -50,6 +50,17 @@ import AddFriend from './components/AddFriend.vue';
            
             const myFriend =  this.friends.find(friend=>friend.id === friendId);
             myFriend.isFavorite = !myFriend.isFavorite;
+        },
+        addNewFriend(name,email,phone){
+            let friendNewData={
+                id: new Date().toISOString(),
+                name:name,
+                email: email,
+                phone: phone,
+                isFavorite:false
+            }
+
+            this.friends.push(friendNewData)
         }
     }
  }
