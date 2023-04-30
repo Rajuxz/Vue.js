@@ -12,6 +12,7 @@
                 :phone-number="friend.phone"
                 :isFavorite="friend.isFavorite"
                 @toggle-fav="toggleFavoriteStatus"
+                @delete="deleteContact"
             ></friend-contact>
             
         </ul>
@@ -61,6 +62,9 @@ import AddFriend from './components/AddFriend.vue';
             }
 
             this.friends.push(friendNewData)
+        },
+        deleteContact(friendId){
+            this.friends = this.friends.filter((friend)=> friend.id != friendId);
         }
     }
  }
@@ -69,6 +73,8 @@ import AddFriend from './components/AddFriend.vue';
     .component{
         width:500px;
         height:fit-content;
+        max-height: 90vh;
+        overflow: scroll;
         border:1px solid red;
         border-radius: 10px;
         margin:auto;
