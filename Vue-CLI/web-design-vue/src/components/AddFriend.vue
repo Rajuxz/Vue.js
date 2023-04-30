@@ -3,15 +3,15 @@
         <form action="#" @submit.prevent="addNewFriend">
             <div>
                 <label for="name">Name</label>
-                <input type="text" id="name" v-model="enteredName">
+                <input type="text" id="name" v-model="enteredName" required>
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="email" id="email" v-model="enteredEmail">
+                <input type="email" id="email" v-model="enteredEmail" required>
             </div>
             <div>
                 <label for="phone">Phone</label>
-                <input type="phone" id="phone" v-model="enteredPhone">
+                <input type="phone" id="phone" v-model="enteredPhone" required>
             </div>
             <div>
                 <button class="btn">Add Contact</button>
