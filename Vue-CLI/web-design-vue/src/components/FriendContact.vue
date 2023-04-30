@@ -3,6 +3,7 @@
         <h2 class="name">{{name}} {{isFavorite?'(Favourite)':''}}</h2>
         <button @click="showDetails">{{isVisible?"Hide Details":"Show Details"}}</button>
         <button @click="toggleFavorite">{{isFavorite?"Remove from Fav.":"Add to Fav."}} </button>
+        <button @click="$emit('delete',id)">Delete</button>
         <ul v-if="isVisible">
             <li><strong>Phone </strong>{{phoneNumber}}</li>
             <li><strong>Email </strong>{{emailAddress}}</li>
@@ -19,6 +20,7 @@ export default {
         'isFavourite'
     ],*/
     // Props validation.
+    emits:['toggle-fav','delete'],
     props:{
         id:{
             type: String,
@@ -78,6 +80,7 @@ export default {
     background: #ff3c00;
     color:white;
     border:1px solid transparent;
+    cursor: pointer;
     border-radius:5px;
    }
    ul{
